@@ -1,0 +1,9 @@
+Source: turbo-nginx
+Package: turbo-nginx
+Priority: optional
+Version: 1.22.0
+Section: web
+Maintainer: CloudVision Ltd.
+Homepage: https://www.turbopanel.com
+Architecture: amd64
+Description: Turbo Panel Nginx Web Server

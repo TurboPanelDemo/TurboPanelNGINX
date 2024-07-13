@@ -1,0 +1,22 @@
+
+# Create nginx service
+cat > /etc/systemd/system/turbo-nginx.service << EOF
+[Unit]
+Description=turbo-nginx
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/turbo/nginx/sbin/nginx
+ExecReload=/usr/local/turbo/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/turbo/nginx/sbin/nginx -s quit
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Start nginx service
+systemctl daemon-reload
+systemctl enable turbo-nginx.service
+systemctl start turbo-nginx.service
